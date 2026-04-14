@@ -1,0 +1,151 @@
+/* ================= NAVBAR ================= */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 50px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgb(77, 75, 75);
+  transition: 0.3s ease;
+}
+
+/* Slightly darker when menu opens */
+.navbar.nav-open {
+  background: rgba(15, 23, 42, 0.85);
+}
+
+/* ================= LOGO ================= */
+
+.logo {
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.logo:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+/* ================= NAV LINKS ================= */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #f1f1f1; /* Softer premium gray */
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.25s ease;
+  padding: 6px 0;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Login link */
+.link {
+  color: #cbd5e1;
+  transition: 0.25s ease;
+}
+
+.link:hover {
+  color: white;
+}
+
+/* ================= CTA BUTTON ================= */
+
+.btn {
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+  color: #020617 !important;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: 0.3s ease;
+  box-shadow: 0 6px 18px rgba(56, 189, 248, 0.35);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(56, 189, 248, 0.55);
+}
+
+/* ================= HAMBURGER MENU ================= */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: white;
+  border-radius: 4px;
+  transition: 0.3s ease;
+}
+
+/* Hamburger animation */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* ================= MOBILE NAV ================= */
+
+@media (max-width: 900px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(14px);
+
+    padding: 25px 0;
+    flex-direction: column;
+    gap: 22px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    transform: translateY(-200%);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s ease;
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .btn {
+    margin-left: 0;
+  }
+}
