@@ -4,13 +4,14 @@ import Footer from "../components/Footer/Footer";
 function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <PublicNavbar />
 
+      <PublicNavbar />
       <main style={{ minHeight: "70vh" }}>
         {children}
       </main>
 
       <Footer />
+    
     </>
   );
 }
