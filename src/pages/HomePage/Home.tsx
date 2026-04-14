@@ -96,6 +96,84 @@ function Home() {
 
           </div>
         </section>
+        {/* FEATURES SECTION */}
+        <section className="features" id="features">
+          <h2>Powerful Features</h2>
+          <p className="section-subtitle">
+            Everything you need to manage inventory with confidence.
+          </p>
+
+          <div className="features-grid">
+
+            <div className="feature-card">
+              <span className="feature-icon">📦</span>
+              <h3>Smart Stock Tracking</h3>
+              <p>Track stock levels in real‑time with automatic updates.</p>
+            </div>
+
+            <div className="feature-card">
+              <span className="feature-icon">🔔</span>
+              <h3>Low‑Stock Alerts</h3>
+              <p>Get instant alerts when items fall below safe quantity.</p>
+            </div>
+
+            <div className="feature-card">
+              <span className="feature-icon">🤝</span>
+              <h3>Supplier Management</h3>
+              <p>Store supplier details and send automated restock emails.</p>
+            </div>
+
+          
+
+            <div className="feature-card">
+              <span className="feature-icon">🏷️</span>
+              <h3>Category & Section Control</h3>
+              <p>Organize items by sections for faster navigation.</p>
+            </div>
+
+            <div className="feature-card">
+              <span className="feature-icon">👥</span>
+              <h3>Multi‑User Access</h3>
+              <p>Invite team members with role‑based permissions.</p>
+            </div>
+
+          </div>
+        </section>
+        {/* SECURITY SECTION */}
+        <section className="security" id="security">
+          <h2>Security You Can Trust</h2>
+          <p className="section-subtitle">
+            Your business data is protected with enterprise‑grade security.
+          </p>
+
+          <div className="security-grid">
+
+            <div className="security-card">
+              <span className="security-icon">🔐</span>
+              <h3>Encrypted Data</h3>
+              <p>All sensitive data is encrypted at rest and in transit.</p>
+            </div>
+
+            <div className="security-card">
+              <span className="security-icon">🛡️</span>
+              <h3>Secure Authentication</h3>
+              <p>OTP verification and hashed passwords ensure safe access.</p>
+            </div>
+
+            <div className="security-card">
+              <span className="security-icon">🏢</span>
+              <h3>Isolated Tenants</h3>
+              <p>Each business has its own isolated database workspace.</p>
+            </div>
+
+            <div className="security-card">
+              <span className="security-icon">📁</span>
+              <h3>Daily Backups</h3>
+              <p>Your data is backed up automatically every 24 hours.</p>
+            </div>
+
+          </div>
+        </section>
 
       </div>
     </PublicLayout>
