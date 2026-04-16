@@ -7,7 +7,7 @@ function PublicNavbar() {
 
   return (
     <header className={`navbar ${open ? "nav-open" : ""}`}>
-      <div className="logo">SmartStock</div>
+      <div className="logo"> SmartStock</div>
 
       {/* HAMBURGER MENU */}
       <div className={`hamburger ${open ? "active" : ""}`} onClick={() => setOpen(!open)}>

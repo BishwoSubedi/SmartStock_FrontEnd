@@ -1,23 +1,52 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthLayout from "../../../layouts/AuthLayout";
+import { apiRequest } from "../../../utils/api";
 import "../Auth.css";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Login Form Data:", formData);
+
+    try {
+      setError("");
+      setSuccess("");
+
+      const data = await apiRequest("/auth/login", {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
+
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      setSuccess("Login successful! Redirecting to dashboard...");
+
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 1000);
+    } catch (err) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Login failed");
+      }
+      setSuccess("");
+    }
   };
 
   return (
@@ -34,9 +63,15 @@ function Login() {
               </p>
 
               <div className="auth-feature-list">
-                <div className="auth-feature-item">📊 View dashboard insights</div>
-                <div className="auth-feature-item">📦 Manage inventory faster</div>
-                <div className="auth-feature-item">🔐 Secure business access</div>
+                <div className="auth-feature-item">
+                  📊 View dashboard insights
+                </div>
+                <div className="auth-feature-item">
+                  📦 Manage inventory faster
+                </div>
+                <div className="auth-feature-item">
+                  🔐 Secure business access
+                </div>
               </div>
             </div>
           </div>
@@ -45,16 +80,17 @@ function Login() {
             <div className="auth-card">
               <div className="auth-header">
                 <h2>Login</h2>
-                <p>Enter your account details to continue.</p>
+                <p>Enter your business account details to continue.</p>
               </div>
 
               <form className="auth-form" onSubmit={handleSubmit}>
                 <div className="input-group">
-                  <label htmlFor="email">Email</label>
+                  <label htmlFor="email">Business Email</label>
                   <input
                     type="email"
                     id="email"
-                    placeholder="Enter email"
+                    placeholder="Enter business email"
+                    value={formData.email}
                     onChange={handleChange}
                     required
                   />
@@ -67,6 +103,7 @@ function Login() {
                       type={showPassword ? "text" : "password"}
                       id="password"
                       placeholder="Enter password"
+                      value={formData.password}
                       onChange={handleChange}
                       required
                     />
@@ -80,19 +117,24 @@ function Login() {
                   </div>
                 </div>
 
-                <div className="auth-links-row">
-                  <Link to="/forgot-password" className="forgot-link">
-                    Forgot Password?
-                  </Link>
-                </div>
+                {error && <p className="error-text">{error}</p>}
+                {success && <p className="success-text">{success}</p>}
 
                 <button type="submit" className="auth-btn">
                   Login
                 </button>
 
                 <p className="auth-footer">
-                  Don't have an account? <Link to="/register">Register</Link>
+                  Don&apos;t have an account? <Link to="/register">Register</Link>
                 </p>
+
+                <Link
+                  to="/"
+                  className="auth-btn"
+                  style={{ textDecoration: "none", textAlign: "center" }}
+                >
+                  Go Back to Homepage
+                </Link>
               </form>
             </div>
           </div>
