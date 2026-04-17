@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { apiRequest } from "../../utils/api";
-import "./StockHistory.css";
+import "./stockHistory.css";
 
 type HistoryItem = {
   id: string;
