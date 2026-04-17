@@ -1,6 +1,7 @@
 import "./Home.css";
 import PublicLayout from "../../layouts/PublicLayout";
 import heroImage from "../../assets/hero/heroImage.png";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -20,7 +21,8 @@ function Home() {
             </p>
 
             <div className="buttons">
-              <a href="/register" className="btn-primary">Register Your Business</a>
+              <Link to="/register" className="btn" style={{textDecoration:"none"}}>Register Your Business</Link>
+
               <a href="#how-it-works" className="btn-secondary">How it works</a>
             </div>
           </div>
