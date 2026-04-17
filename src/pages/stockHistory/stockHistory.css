@@ -1,0 +1,206 @@
+.stock-history-page {
+  width: 100%;
+}
+
+.stock-history-header {
+  margin-bottom: 28px;
+}
+
+.stock-history-tag {
+  margin: 0 0 8px;
+  color: #7c3aed;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.stock-history-header h1 {
+  margin: 0;
+  font-size: 34px;
+  color: #0f172a;
+  font-weight: 800;
+}
+
+.stock-history-subtitle {
+  margin-top: 10px;
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.stock-history-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.stock-history-topbar {
+  margin-bottom: 20px;
+}
+
+.stock-history-topbar h2 {
+  margin: 0 0 6px;
+  color: #0f172a;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.stock-history-info {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.stock-history-message {
+  color: #64748b;
+  font-size: 15px;
+}
+
+.stock-history-error {
+  color: #dc2626;
+  font-size: 14px;
+  margin: 0;
+}
+
+.stock-history-empty {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.stock-history-empty-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.stock-history-empty h3 {
+  margin: 0 0 8px;
+  color: #0f172a;
+  font-size: 24px;
+}
+
+.stock-history-empty p {
+  margin: 0;
+  color: #64748b;
+  font-size: 15px;
+}
+
+.stock-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stock-history-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 20px;
+  border-radius: 18px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.stock-history-item-left {
+  flex: 1;
+}
+
+.stock-history-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.stock-history-title-row h3 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 19px;
+}
+
+.history-badge {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid transparent;
+}
+
+.out-badge {
+  background: #fee2e2;
+  color: #dc2626;
+  border-color: #fecaca;
+}
+
+.in-badge {
+  background: #dcfce7;
+  color: #16a34a;
+  border-color: #bbf7d0;
+}
+
+.update-badge {
+  background: #ede9fe;
+  color: #7c3aed;
+  border-color: #ddd6fe;
+}
+
+.stock-history-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 18px;
+}
+
+.stock-history-meta-grid p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.stock-history-item-right {
+  display: flex;
+  align-items: flex-start;
+}
+
+.history-date {
+  font-size: 13px;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .stock-history-item {
+    flex-direction: column;
+  }
+
+  .stock-history-item-right {
+    width: 100%;
+  }
+
+  .history-date {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 640px) {
+  .stock-history-header h1 {
+    font-size: 28px;
+  }
+
+  .stock-history-subtitle {
+    font-size: 14px;
+  }
+
+  .stock-history-card {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .stock-history-meta-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,71 @@
+.notfound-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.notfound-card {
+  text-align: center;
+  background: white;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  max-width: 420px;
+  width: 100%;
+}
+
+.notfound-card h1 {
+  font-size: 80px;
+  margin: 0;
+  color: #6366f1;
+  line-height: 1;
+}
+
+.notfound-card h2 {
+  margin: 10px 0;
+  font-size: 24px;
+  color: #0f172a;
+}
+
+.notfound-card p {
+  color: #64748b;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.notfound-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.notfound-btn {
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.notfound-btn.primary {
+  background: #6366f1;
+  color: white;
+}
+
+.notfound-btn.primary:hover {
+  background: #4f46e5;
+}
+
+.notfound-btn.secondary {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.notfound-btn.secondary:hover {
+  background: #cbd5e1;
+}

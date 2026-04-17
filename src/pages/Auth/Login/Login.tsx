@@ -117,6 +117,12 @@ function Login() {
                   </div>
                 </div>
 
+                <div className="auth-links-row">
+                  <Link to="/forgot-password" className="forgot-link">
+                    Forgot Password?
+                  </Link>
+                </div>
+
                 {error && <p className="error-text">{error}</p>}
                 {success && <p className="success-text">{success}</p>}
 
@@ -125,7 +131,8 @@ function Login() {
                 </button>
 
                 <p className="auth-footer">
-                  Don&apos;t have an account? <Link to="/register">Register</Link>
+                  Don&apos;t have an account?{" "}
+                  <Link to="/register">Register</Link>
                 </p>
 
                 <Link

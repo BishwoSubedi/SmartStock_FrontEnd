@@ -1,31 +1,12 @@
-import { useState } from "react";
 import { Outlet } from "react-router-dom";
-import Sidebar from "../components/SideBar/Sidebar";
+import TopNavbar from "../components/TopNavbar/TopNavbar";
 
 function DashboardLayout() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
   return (
-    <div className="dashboard-layout">
-      <button
-        className="mobile-menu-btn"
-        onClick={() => setSidebarOpen(true)}
-      >
-        ☰
-      </button>
+    <div className="dashboard-layout-top">
+      <TopNavbar />
 
-      {sidebarOpen && (
-        <div
-          className="sidebar-overlay"
-          onClick={() => setSidebarOpen(false)}
-        ></div>
-      )}
-
-      <div className={sidebarOpen ? "sidebar-wrapper open" : "sidebar-wrapper"}>
-        <Sidebar onClose={() => setSidebarOpen(false)} />
-      </div>
-
-      <main className="dashboard-main">
+      <main className="dashboard-main-top">
         <Outlet />
       </main>
     </div>

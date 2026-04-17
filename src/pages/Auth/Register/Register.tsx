@@ -31,46 +31,48 @@ function Register() {
     return passwordRegex.test(password);
   };
 
-  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
 
-    if (!validatePassword(formData.password)) {
-      setError(
-        "Password must be at least 9 characters and include uppercase, lowercase, number, and special characters."
-      );
-      setSuccess("");
-      return;
-    }
+  if (!validatePassword(formData.password)) {
+    setError(
+      "Password must be at least 9 characters and include uppercase, lowercase, number, and special characters."
+    );
+    setSuccess("");
+    return;
+  }
 
-    if (formData.password !== formData.confirmPassword) {
-      setError("Passwords do not match.");
-      setSuccess("");
-      return;
-    }
+  if (formData.password !== formData.confirmPassword) {
+    setError("Passwords do not match.");
+    setSuccess("");
+    return;
+  }
 
-    try {
-      setError("");
-      setSuccess("");
+  try {
+    setError("");
+    setSuccess("");
 
-      const data = await apiRequest("/auth/register", {
-        method: "POST",
-        body: JSON.stringify(formData),
+    const data = await apiRequest("/auth/register", {
+      method: "POST",
+      body: JSON.stringify(formData),
+    });
+
+    setSuccess(data.message || "Registration successful! OTP sent to your email.");
+
+    setTimeout(() => {
+      navigate("/verify-otp", {
+        state: { email: formData.email },
       });
-
-      setSuccess(data.message || "Business account registered successfully!");
-
-      setTimeout(() => {
-        navigate("/login");
-      }, 1000);
-    } catch (err) {
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError("Registration failed");
-      }
-      setSuccess("");
+    }, 1000);
+  } catch (err) {
+    if (err instanceof Error) {
+      setError(err.message);
+    } else {
+      setError("Registration failed");
     }
-  };
+    setSuccess("");
+  }
+};
 
   return (
     <AuthLayout>
