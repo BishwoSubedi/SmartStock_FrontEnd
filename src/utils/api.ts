@@ -1,19 +1,20 @@
-// const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-const API_BASE_URL = "https://smartstock-backend-ym3h.onrender.com/api"
+const API_BASE_URL = "https://smartstock-backend-ym3h.onrender.com/api";
 
 export const apiRequest = async (
   endpoint: string,
   options: RequestInit = {}
 ) => {
+  const token = localStorage.getItem("token");
+
   const headers: Record<string, string> = {
     "Content-Type": "application/json",
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
     ...(options.headers as Record<string, string>),
   };
 
   const response = await fetch(`${API_BASE_URL}${endpoint}`, {
     ...options,
     headers,
-    credentials: "include",
   });
 
   const data = await response.json();
