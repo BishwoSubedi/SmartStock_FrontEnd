@@ -1,4 +1,5 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+// const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = "https://smartstock-backend-ym3h.onrender.com/api"
 
 export const apiRequest = async (
   endpoint: string,
